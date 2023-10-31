@@ -1,0 +1,94 @@
+@import 'app/shared/components/context-menu/context-menu-detached.css';
+
+:root {
+  --base-color: hsl(188, 40%, 96%);
+  --main-color: hsl(188, 98%, 22%);
+  --highlight-color: hsl(244, 98%, 22%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma, sans-serif;
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: 2.4rem;
+  line-height: 3.4rem;
+  font-weight: normal;
+}
+
+h2 {
+  margin: 20px 0;
+  font-size: 2.1rem;
+  line-height: 3rem;
+  font-weight: normal;
+}
+
+h3 {
+  margin: 20px 0;
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+button, input[type=checkbox], input[type=radio], label, select {
+  cursor: pointer;
+}
+
+button, input[type=checkbox] {
+  border-radius: 2.3px;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type=checkbox] {
+  margin: 0;
+}
+
+#wrapper {
+  width: 800px;
+  margin: 10px auto 0 auto;
+}
+
+.ac-button {
+  padding: 5px;
+  background-color: #fff;
+  color: var(--main-color);
+  border: 1.5px solid var(--main-color);
+  font-size: 1.2rem;
+}
+
+  .ac-button:hover:enabled {
+    background-color: var(--main-color);
+    color: #fff;
+  }
+
+  .ac-button:disabled {
+    color: #808080;
+    border-color: #808080;
+  }
+
+.ac-label {
+  font-size: 1.2rem;
+}
+
+.ac-select {
+  color: var(--main-color);
+}
+
+.invalid-field-message {
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+  color: #ff0000;
+}

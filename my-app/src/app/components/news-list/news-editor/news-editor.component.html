@@ -1,0 +1,59 @@
+<div class="editor-modal">
+  <div class="editor-modal__content">
+    <div class="editor-modal__header">
+      <div class="editor-modal__title">
+        {{editorTitle}}
+      </div>
+      <div class="editor-modal__close-button" (click)="close()"></div>
+    </div>
+    <div class="editor-modal__main">
+      <div class="news-editor__fields">
+        <form [formGroup]="newsForm" (ngSubmit)="save()">
+          <p>Дата</p>
+          <div *ngIf="date.invalid && (date.dirty || date.touched)" class="invalid-field-message">
+            <div *ngIf="date.hasError('required')">
+              * Обязательное поле
+            </div>
+          </div>
+          <input type="datetime" formControlName="date" />
+          <p>Заголовок</p>
+          <div *ngIf="headline.invalid && (headline.dirty || headline.touched)" class="invalid-field-message">
+            <div *ngIf="headline.hasError('required')">
+              * Обязательное поле
+            </div>
+            <div *ngIf="headline.hasError('maxlength')">
+              * Не более 200 символов
+            </div>
+          </div>
+          <textarea formControlName="headline" class="news-editor__text-field news-editor__text-field_small"></textarea>
+          <p>Текст</p>
+          <div *ngIf="text.invalid && (text.dirty || text.touched)" class="invalid-field-message">
+            <div *ngIf="text.hasError('required')">
+              * Обязательное поле
+            </div>
+            <div *ngIf="text.hasError('maxlength')">
+              * Не более 5000 символов
+            </div>
+          </div>
+          <textarea formControlName="text" class="news-editor__text-field news-editor__text-field_medium"></textarea>
+          <p>Тема</p>
+          <div *ngIf="theme.invalid && (theme.dirty || theme.touched)" class="invalid-field-message">
+            <div *ngIf="theme.hasError('required')">
+              * Обязательное поле
+            </div>
+            <div *ngIf="theme.hasError('politicsFreeDay')">
+              * Сегодня нельзя публиковать новости о политике
+            </div>
+          </div>
+          <ac-news-theme-selector formControlName="theme" [themes]="newsThemes"></ac-news-theme-selector>
+          <div class="news-editor__bottom-panel">
+            <ng-template acLoggedInAccess>
+              <button type="submit" class="ac-button news-editor__button" *acOperationAccess="'saveNewsChanges'">Сохранить</button>
+            </ng-template>
+            <button (click)="close()" class="ac-button news-editor__button">Отмена</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

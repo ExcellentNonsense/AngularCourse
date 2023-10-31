@@ -1,0 +1,17 @@
+.user-profile {
+  width: 250px;
+}
+
+.user-profile__field {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.user-profile__bottom-panel {
+  margin: 20px 0 0 0;
+  text-align: right;
+}
+
+.user-profile__button {
+  margin: 0 0 0 10px;
+}

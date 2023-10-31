@@ -1,0 +1,41 @@
+.site-nav {
+  display: flex;
+  padding: 10px 0 10px 0;
+  margin: 10px 0 40px 0;
+  border-bottom: solid 1px var(--main-color);
+}
+
+  .site-nav a:nth-child(odd):not(:last-child) {
+    margin: 0 10px 0 0;
+  }
+
+.site-nav__main {
+  flex: 1;
+}
+
+.site-nav__main-link {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.site-nav__main-link, .site-nav__login-logout-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+  .site-nav__main-link:hover, .site-nav__login-logout-link:hover {
+    color: var(--highlight-color);
+  }
+
+.main-link_state_active {
+  color: var(--highlight-color);
+}
+
+.site-nav__login-logout {
+  text-align: right;
+}
+
+  .site-nav__login-logout a {
+    font-size: 1.2rem;
+  }

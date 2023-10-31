@@ -1,0 +1,10 @@
+<nav class="site-nav">
+  <div class="site-nav__main">
+    <a class="site-nav__main-link" routerLink="/news" routerLinkActive="active">Новости</a>
+    <a *acLoggedInAccess class="site-nav__main-link" routerLink="/user-profile" routerLinkActive="main-link_state_active">Профиль</a>
+  </div>
+  <div class="site-nav__login-logout">
+    <a *ngIf="!(isUserLoggedIn | async)" class="site-nav__login-logout-link" routerLink="/login">Вход</a>
+    <a *ngIf="isUserLoggedIn | async" class="site-nav__login-logout-link" routerLink="/login">Выход</a>
+  </div>
+</nav>

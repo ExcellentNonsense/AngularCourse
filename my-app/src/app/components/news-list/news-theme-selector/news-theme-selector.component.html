@@ -1,0 +1,3 @@
+<label *ngFor="let item of themes" class="ac-label news-editor__radio-option" [acNewsThemeHighlight]="item">
+  <input #element type="radio" name="theme" value={{item}} [checked]="item === selectedTheme" (input)="selectTheme(element.value)" blur="onBlur()" />{{item}}
+</label>

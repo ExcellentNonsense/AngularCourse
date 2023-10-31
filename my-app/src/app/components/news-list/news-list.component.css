@@ -1,0 +1,32 @@
+.news-counter {
+  margin: 0 0 10px 0;
+}
+
+.news-list__toolbox {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 10px 0;
+  padding: 10px;
+  background-color: var(--base-color);
+}
+
+.news-list__search {
+  display: flex;
+  margin: 0 0 10px 0;
+}
+
+.news-list__search-field {
+  flex: 1;
+  margin: 0 0 0 10px;
+  padding: 5px 0 5px 0;
+  border: none;
+  outline: none;
+}
+
+.news-list__add-delete-buttons {
+  text-align: right;
+}
+
+.news-list__button {
+  margin: 0 0 0 10px;
+}

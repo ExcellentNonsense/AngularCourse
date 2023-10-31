@@ -1,0 +1,21 @@
+<div class="news" [class.news_selected]="isNewsSelected">
+  <div class="news__side-bar">
+    <input type="checkbox" #selectNewsCheckbox [checked]="isNewsSelected" (change)="selectNews(selectNewsCheckbox.checked)" />
+    <div class="news__theme-icon" [acNewsThemeHighlight]="news.theme">
+      {{news.theme | firstLetter}}<span class="news__theme-tooltip">{{news.theme}}</span>
+    </div>
+  </div>
+  <div class="news__main">
+    <h3>{{news.headline | uppercaseFirstLetter}}</h3>
+    <p class="news__date">{{news.date}}</p>
+    <p>
+      {{news.text}}
+    </p>
+    <div class="news__bottom-panel">
+      <button class="ac-button news__button" (click)="editNews()">Редактировать</button>
+      <ng-template acLoggedInAccess>
+        <button class="ac-button news__button" [disabled]="!isNewsSelected" (click)="deleteNews()" *acOperationAccess="'deleteNews'">Удалить</button>
+      </ng-template>
+    </div>
+  </div>
+</div>

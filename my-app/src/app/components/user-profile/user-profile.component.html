@@ -1,0 +1,41 @@
+<div *ngIf="userProfileForm" class="user-profile">
+  <form [formGroup]="userProfileForm" (ngSubmit)="save()">
+    <p>Имя</p>
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="invalid-field-message">
+      <div *ngIf="firstName.hasError('required')">
+        * Обязательное поле
+      </div>
+      <div *ngIf="firstName.hasError('maxlength')">
+        * Не более 100 символов
+      </div>
+    </div>
+    <input type="text" formControlName="firstName" class="user-profile__field" />
+    <p>Фамилия</p>
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="invalid-field-message">
+      <div *ngIf="lastName.hasError('required')">
+        * Обязательное поле
+      </div>
+      <div *ngIf="lastName.hasError('maxlength')">
+        * Не более 100 символов
+      </div>
+    </div>
+    <input type="text" formControlName="lastName" class="user-profile__field" />
+    <p>E-mail</p>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-field-message">
+      <div *ngIf="email.hasError('required')">
+        * Обязательное поле
+      </div>
+      <div *ngIf="email.hasError('maxlength')">
+        * Не более 500 символов
+      </div>
+      <div *ngIf="email.hasError('email')">
+        * Невалидный email
+      </div>
+    </div>
+    <input type="text" formControlName="email" class="user-profile__field" />
+    <div class="user-profile__bottom-panel">
+      <button type="submit" class="ac-button user-profile__button">Сохранить</button>
+      <button (click)="close()" class="ac-button user-profile__button">Отмена</button>
+    </div>
+  </form>
+</div>

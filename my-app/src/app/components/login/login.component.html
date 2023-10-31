@@ -1,0 +1,33 @@
+<div *ngIf="loginForm" class="loginForm">
+  <div *ngIf="isLoginFailed" class="loginForm__failed-login">
+    Неверный логин или пароль.
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+    <p>Логин</p>
+    <div *ngIf="login.invalid && (login.dirty || login.touched)" class="invalid-field-message">
+      <div *ngIf="login.hasError('required')">
+        * Обязательное поле
+      </div>
+      <div *ngIf="login.hasError('maxlength')">
+        * Не более 100 символов
+      </div>
+    </div>
+    <input type="text" formControlName="login" class="loginForm__field" />
+    <p>Пароль</p>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-field-message">
+      <div *ngIf="password.hasError('required')">
+        * Обязательное поле
+      </div>
+      <div *ngIf="password.hasError('minlength')">
+        * Не менее 6 символов
+      </div>
+      <div *ngIf="password.hasError('maxlength')">
+        * Не более 50 символов
+      </div>
+    </div>
+    <input type="password" formControlName="password" class="loginForm__field" />
+    <div class="loginForm__bottom-panel">
+      <button type="submit" class="ac-button loginForm__button">Войти</button>
+    </div>
+  </form>
+</div>

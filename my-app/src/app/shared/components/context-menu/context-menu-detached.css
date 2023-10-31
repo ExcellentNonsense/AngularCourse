@@ -1,0 +1,11 @@
+.context-menu__option {
+  padding: 10px;
+  color: var(--main-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+  .context-menu__option:hover {
+    color: #fff;
+    background-color: var(--main-color);
+  }

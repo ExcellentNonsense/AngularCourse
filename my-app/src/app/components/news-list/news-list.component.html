@@ -1,0 +1,29 @@
+<div class="news-counter">
+  <div>Всего новостей: {{newsStoriesCount$ | async}}</div>
+  <div>Политика: {{newsStoriesPolicyCount$ | async}}</div>
+  <div>Туризм: {{newsStoriesTourismCount$ | async}}</div>
+  <div>Экономика: {{newsStoriesEconomyCount$ | async}}</div>
+</div>
+
+<div class="news-list">
+  <div class="news-list__toolbox">
+    <div class="news-list__search">
+      <select #element class="ac-select" (change)="handleNewsThemeChange(element.value)">
+        <option value={{allNewsThemes}}>{{allNewsThemes}}</option>
+        <option *ngFor="let item of newsThemes" value="{{item}}" [selected]="item === this.newsStoriesFilter.value.theme">{{item}}</option>
+      </select>
+      <input #searchField type="text" class="news-list__search-field" placeholder="Поиск" value={{this.newsStoriesFilter.value.headline}} />
+    </div>
+    <div class="news-list__add-delete-buttons">
+      <button (click)="createNews()" class="ac-button news-list__button">+ Добавить новость</button>
+      <button (click)="deleteSelectedNewsStories()" class="ac-button news-list__button" [disabled]="deleteSelectedNewsDisabled" *acOperationAccess="'deleteNews'">Удалить выбранные</button>
+    </div>
+  </div>
+  <div class="news-list__news-stories" (contextmenu)="showContextMenu($event)" (click)="hideContextMenu()">
+    <ac-news *ngFor="let item of newsStories$ | async" [news]="item" (selectNewsEvent)="selectNews(item.id, $event)" (editNewsEvent)="editNews(item.id)" (deleteNewsEvent)="deleteNews(item.id)"></ac-news>
+  </div>
+</div>
+
+<ac-context-menu #contextMenu>
+  <ac-context-menu-commands (selectAllNewsStoriesEvent)="selectAllNewsStories()" (deselectAllNewsStoriesEvent)="deselectAllNewsStories()"></ac-context-menu-commands>
+</ac-context-menu>
